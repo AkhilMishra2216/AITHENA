@@ -104,7 +104,7 @@ function SignUp() {
                  <div className='text-[#6f6f6f]'>Already have an account? <span className='underline underline-offset-1 text-[black]' onClick={()=>navigate("/login")}>Login</span></div>
 
             </div>
-            <div className='w-[50%] h-[100%] rounded-r-2xl bg-[black] md:flex items-center justify-center flex-col hidden'><img src={logo} className='w-30 shadow-2xl' alt="" />
+            <div className='w-[50%] h-[100%] rounded-r-2xl bg-[black] md:flex items-center justify-center flex-col hidden'><img src={aithenalogo} className='w-30 shadow-2xl' alt="" />
             <span className='text-[white] text-2xl'>VIRTUAL COURSES</span>
             </div>
            
@@ -115,3 +115,4 @@ function SignUp() {
 }
 
 export default SignUp
+
