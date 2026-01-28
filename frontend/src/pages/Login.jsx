@@ -21,6 +21,15 @@ function Login() {
     let [show,setShow] = useState(false)
      const [loading,setLoading]= useState(false)
      let dispatch = useDispatch()
+    const fillDemoEducator = () => {
+        setEmail("kartikkatiyar@gmail.com")
+        setPassword("kartik123")
+    }
+
+    const fillDemoStudent = () => {
+        setEmail("pihu123@gmail.com")
+        setPassword("pihu@123")
+    }
     const handleLogin = async () => {
         setLoading(true)
         try {
@@ -81,6 +90,26 @@ function Login() {
                     </div>
                      
                     <button className='w-[80%] h-[40px] bg-black text-white cursor-pointer flex items-center justify-center rounded-[5px]' disabled={loading} onClick={handleLogin}>{loading?<ClipLoader size={30} color='white' /> : "Login"}</button>
+                    
+                    <div className='w-[80%] flex gap-2'>
+                        <button
+                            type="button"
+                            className='w-[50%] h-[40px] border-1 border-[#d3d2d2] rounded-[5px] text-[14px] text-gray-700 cursor-pointer'
+                            onClick={fillDemoStudent}
+                            disabled={loading}
+                        >
+                            Demo Student
+                        </button>
+                        <button
+                            type="button"
+                            className='w-[50%] h-[40px] border-1 border-[#d3d2d2] rounded-[5px] text-[14px] text-gray-700 cursor-pointer'
+                            onClick={fillDemoEducator}
+                            disabled={loading}
+                        >
+                            Demo Educator
+                        </button>
+                    </div>
+
                     <span className='text-[13px] cursor-pointer text-[#585757]' onClick={()=>navigate("/forgotpassword")}>Forget your password?</span>
     
                     <div className='w-[80%] flex items-center gap-2'>
