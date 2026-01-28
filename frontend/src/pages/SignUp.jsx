@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../assets/logo.jpg'
+import aithenalogo from '../assets/aithenalogo.png'
 import google from '../assets/google.jpg'
 import axios from 'axios'
 import { serverUrl } from '../App'
@@ -42,6 +42,10 @@ function SignUp() {
     }
     const googleSignUp = async () => {
         try {
+            if (!auth || !provider) {
+                toast.error("Google sign up is not configured. Please sign up with email/password.");
+                return;
+            }
             const response = await signInWithPopup(auth,provider)
             console.log(response)
             let user = response.user
@@ -105,7 +109,7 @@ function SignUp() {
 
             </div>
             <div className='w-[50%] h-[100%] rounded-r-2xl bg-[black] md:flex items-center justify-center flex-col hidden'><img src={aithenalogo} className='w-30 shadow-2xl' alt="" />
-            <span className='text-[white] text-2xl'>VIRTUAL COURSES</span>
+            <span className='text-[white] text-2xl'>AITHENA</span>
             </div>
            
         </form>
