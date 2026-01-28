@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/logo.jpg"; // replace with actual path
+import aithenalogo from "../assets/aithenalogo.png";
 
 const Footer = () => {
   let navigate = useNavigate();
@@ -10,8 +10,8 @@ const Footer = () => {
 
         {/* Logo + Description */}
         <div className="lg:w-[40%] md:w-[50%] w-[100%]">
-          <img src={logo} alt="Logo" className="h-10 mb-3 border-1 rounded-[5px]" />
-          <h2 className="text-xl font-bold text-white mb-3">Virtual Courses</h2>
+          <img src={aithenalogo} alt="Aithena Logo" className="h-10 mb-3 border-1 rounded-[5px]" />
+          <h2 className="text-xl font-bold text-white mb-3">Aithena</h2>
           <p className="text-sm">
             AI-powered learning platform to help you grow smarter. Learn anything, anytime, anywhere.
           </p>
