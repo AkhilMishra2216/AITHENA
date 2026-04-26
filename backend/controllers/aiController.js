@@ -1,4 +1,4 @@
-import { GoogleGenAI } from "@google/genai";
+import Groq from "groq-sdk";
 import dotenv from "dotenv";
 import Course from "../models/courseModel.js";
 dotenv.config();
@@ -13,7 +13,7 @@ export const searchWithAi = async (req,res) => {
       return res.status(400).json({ message: "Search query is required" });
     }
  // case-insensitive
-    const ai = new GoogleGenAI({apiKey:process.env.GEMINI_API_KEY});
+    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 const prompt=`You are an intelligent assistant for an LMS platform. A user will type any query about what they want to learn. Your task is to understand the intent and return one **most relevant keyword** from the following list of course categories and levels:
 
 - App Development  
@@ -34,11 +34,11 @@ Only reply with one single keyword from the list above that best matches the que
 Query: ${input}
 `
 
-  const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
-    contents:prompt,
+  const response = await groq.chat.completions.create({
+    messages: [{ role: "user", content: prompt }],
+    model: "llama-3.3-70b-versatile",
   });
-  const keyword=response.text
+  const keyword=response.choices[0]?.message?.content?.trim() || "";
 
 
 
